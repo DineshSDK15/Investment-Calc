@@ -1,0 +1,44 @@
+.main-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-height: 300px;
+    height: 100%;
+}
+.calc-container{
+    margin: 10px;
+    background-color: #26777a;
+    border-radius: 10px;
+    padding: 20px;
+}
+/* Chrome, Safari, Edge */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.form-container{
+    display: flex;
+    align-items: center;
+    flex-flow: column wrap;
+
+}
+.inputs{
+    display: flex;
+}
+.input-container{
+    margin: 10px;
+    width: 40%;
+}
+.btn{
+    border-radius: 10px;
+    i{
+        margin-right: 5px;
+    }
+}

@@ -1,0 +1,47 @@
+<div class="main-container">
+    <div class="calc-container">
+        <form (ngSubmit)="onSubmit()" class="form-container">
+            <div class="inputs">
+                <mat-form-field class="input-container" appearance="outline">
+                    <mat-label>Initial Investment</mat-label>
+                    <input type="number" matInput [(ngModel)]="investment.initialInv" placeholder="Enter Amount" name="initialInv">
+                    @if(investment.initialInv){
+                        <button matSuffix mat-icon-button aria-label="Clear" (click)="investment.initialInv = 0">
+                            <mat-icon>close</mat-icon>
+                          </button>           
+                         }
+                </mat-form-field>
+                <mat-form-field class="input-container" appearance="outline">
+                    <mat-label>Annual Investment</mat-label>
+                    <input type="number" matInput [(ngModel)]="investment.annualInv" placeholder="Enter Amount" name="annualInv">
+                    @if(investment.annualInv){
+                        <button matSuffix mat-icon-button aria-label="Clear" (click)="investment.annualInv = 0">
+                            <mat-icon>close</mat-icon>
+                          </button>           
+                         }
+                </mat-form-field>
+                <mat-form-field class="input-container" appearance="outline">
+                    <mat-label>Expected return</mat-label>
+                    <input type="number" matInput [(ngModel)]="investment.expectedReturn" placeholder="Enter Amount" name="expectedReturn">
+                    @if(investment.expectedReturn){
+                        <button matSuffix mat-icon-button aria-label="Clear" (click)="investment.expectedReturn = 0">
+                            <mat-icon>close</mat-icon>
+                          </button>           
+                         }
+                </mat-form-field>
+                <mat-form-field class="input-container" appearance="outline">
+                    <mat-label>Duration</mat-label>
+                    <input type="number" matInput [(ngModel)]="investment.duration" placeholder="Enter Amount" name="duration">
+                    @if(investment.duration){
+                        <button matSuffix mat-icon-button aria-label="Clear" (click)="investment.duration = 0">
+                            <mat-icon>close</mat-icon>
+                          </button>           
+                         }
+                </mat-form-field>    
+            </div>
+            <div>
+                <button type="submit" class="btn" mat-raised-button><i class="fa-solid fa-coins"></i> Calculate</button>
+            </div>
+             </form>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+@if(!data()){
+    <p>Please enter some values and press "Calculate"</p>
+}
+@else {
+    <div class="main-container">
+       <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    @for(header of headers; track header.field){
+                        <th>{{header.name}}</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @for(row of data(); track row.year;){
+                    <tr>
+                        @for(header of headers; track header.field){
+                            <td>{{row[header.field] | number : '1.0-3'}}</td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+       </div>
+    </div>
+}

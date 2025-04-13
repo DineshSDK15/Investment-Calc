@@ -1,0 +1,34 @@
+p{
+    text-align: center;
+}
+.main-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    h5{
+        text-align: start;
+    }
+}
+.table-container{
+    height: 100%;
+    max-height: calc(100vh - 550px);
+    overflow: auto;
+    table{
+        border-collapse: collapse;
+        width: 100%;
+    }
+    thead > tr{
+        position: sticky;
+        background-color: #26777a;
+        top: 0;
+        z-index: 1;
+    }
+    tbody tr{
+        border-bottom: 1px solid #ffffffc9;
+    }
+    td,th{
+        padding: 10px;
+        text-align: center;
+    }
+}

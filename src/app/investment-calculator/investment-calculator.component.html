@@ -4,43 +4,55 @@
             <div class="inputs">
                 <mat-form-field class="input-container" appearance="outline">
                     <mat-label>Initial Investment</mat-label>
-                    <input type="number" matInput [(ngModel)]="investment.initialInv" placeholder="Enter Amount" name="initialInv">
+                    <input type="number" matInput [(ngModel)]="investment.initialInv" placeholder="Enter Amount" name="initialInv" required min="0">
                     @if(investment.initialInv){
                         <button matSuffix mat-icon-button aria-label="Clear" (click)="investment.initialInv = 0">
                             <mat-icon>close</mat-icon>
                           </button>           
                          }
+                    @if(investment.initialInv == null){
+                         <mat-error>Should be Filled!</mat-error>
+                        }
                 </mat-form-field>
                 <mat-form-field class="input-container" appearance="outline">
                     <mat-label>Annual Investment</mat-label>
-                    <input type="number" matInput [(ngModel)]="investment.annualInv" placeholder="Enter Amount" name="annualInv">
+                    <input type="number" matInput [(ngModel)]="investment.annualInv" placeholder="Enter Amount" name="annualInv" required min="0">
                     @if(investment.annualInv){
                         <button matSuffix mat-icon-button aria-label="Clear" (click)="investment.annualInv = 0">
                             <mat-icon>close</mat-icon>
                           </button>           
                          }
+                         @if(investment.annualInv == null){
+                            <mat-error>Should be Filled!</mat-error>
+                           }
                 </mat-form-field>
                 <mat-form-field class="input-container" appearance="outline">
                     <mat-label>Expected return</mat-label>
-                    <input type="number" matInput [(ngModel)]="investment.expectedReturn" placeholder="Enter Amount" name="expectedReturn">
+                    <input type="number" matInput [(ngModel)]="investment.expectedReturn" placeholder="Enter Amount" name="expectedReturn" required min="0">
                     @if(investment.expectedReturn){
                         <button matSuffix mat-icon-button aria-label="Clear" (click)="investment.expectedReturn = 0">
                             <mat-icon>close</mat-icon>
                           </button>           
                          }
+                         @if(investment.expectedReturn == null){
+                            <mat-error>Should be Filled!</mat-error>
+                           }
                 </mat-form-field>
                 <mat-form-field class="input-container" appearance="outline">
                     <mat-label>Duration</mat-label>
-                    <input type="number" matInput [(ngModel)]="investment.duration" placeholder="Enter Amount" name="duration">
+                    <input type="number" matInput [(ngModel)]="investment.duration" placeholder="Enter Amount" name="duration" required min="0">
                     @if(investment.duration){
                         <button matSuffix mat-icon-button aria-label="Clear" (click)="investment.duration = 0">
                             <mat-icon>close</mat-icon>
                           </button>           
                          }
+                         @if(investment.duration == null){
+                            <mat-error>Should be Filled!</mat-error>
+                           }
                 </mat-form-field>    
             </div>
             <div>
-                <button type="submit" class="btn" mat-raised-button><i class="fa-solid fa-coins"></i> Calculate</button>
+                <button type="submit" class="btn" mat-raised-button [disabled]="!investment.annualInv || !investment.duration || !investment.expectedReturn || !investment.initialInv"><i class="fa-solid fa-coins"></i> Calculate</button>
             </div>
              </form>
     </div>

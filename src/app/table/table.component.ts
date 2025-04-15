@@ -1,6 +1,7 @@
-import { Component, computed, input, OnInit, SimpleChanges } from '@angular/core';
-import { InvestmentDetail } from '../investment-model/investment.model';
+import { Component, inject, OnInit } from '@angular/core';
+import { AnInvestment, InvestmentDetail } from '../investment-model/investment.model';
 import { CommonModule } from '@angular/common';
+import { InvestmentCalculateService } from '../investment-calculate.service';
 
 @Component({
   selector: 'app-table',
@@ -10,10 +11,11 @@ import { CommonModule } from '@angular/common';
   styleUrl: './table.component.css'
 })
 export class TableComponent implements OnInit{
+  investmentService = inject(InvestmentCalculateService);
   ngOnInit() {
     this.headers = this.setHeaders(Object.keys(new InvestmentDetail()));
   }
-  data = input<InvestmentDetail[]>();
+  data = this.investmentService.result.asReadonly();
   headers !:{field:string, name:string}[];
 
 setHeaders(headers : string[]){
